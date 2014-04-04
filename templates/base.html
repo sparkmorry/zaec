@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <script type="text/javascript" src="/static/js/jquery.js"></script>
+    </head>
+    <body>
+      
+    <div class="header">
+    </div>
+
+    <div class="body">
+
+      <div class="navigation">
+          <img id="zju_logo" src="/static/images/zju_logo.png">
+            <a href="/">首页</a>
+            <a href="/intro">大赛介绍</a>
+            <a href="/notification">活动公告</a>
+            <a href="/judges">评委顾问</a>
+            <a href="/projects">项目展示</a>
+            <a href="http://www.baidu.com">往届回顾</a>
+            <a href="/register" id="register">我要参赛</a>
+      </div>
+      {% block content %}{% endblock %}
+  </body>
+</html>

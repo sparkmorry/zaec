@@ -1,0 +1,59 @@
+/******color sheet*******
+	blue: #42b3e5;
+	green1: #7c8e77;
+	green2: #506e50;
+	gray: #ceccca;
+*/
+body{
+	background: url(imgs/bg2.jpg) no-repeat bottom center #b76a60;
+}
+
+#section4{
+	background-color: rgba(255,255,255,0.85);
+}
+#section4>div{
+	padding: 30px;
+	overflow: hidden;
+}
+.section>h1{
+	line-height: 75px;
+	font-size: 1.2em;
+	color: white;
+	padding-left: 20px;
+	background: #42b3e5;
+}
+.section>h1>span{
+	float: right;
+	margin-right: 20px;
+}
+#section4 h2{
+	color:#42b3e5;
+	font-size: 1.2em;
+}
+#section4 h3{
+	font-size: 1.1em;
+	font-weight: 200;
+	margin-bottom: 20px;
+}
+#section4 p{
+	font-size: 1em;
+	line-height: 1.2em;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.col1{
+	width: 55%;
+	text-align: center;
+	background: #c6c6c6;
+}
+.col2{
+	width: 42%;
+}
+.project{
+	margin: 30px auto;
+}

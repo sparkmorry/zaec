@@ -1,0 +1,86 @@
+/******color sheet*******
+	blue: #42b3e5;
+	green1: #7c8e77;
+	green2: #506e50;
+	gray: #ceccca;
+*/
+body{
+	background: url(imgs/bg4.jpg) no-repeat top center #506e50;
+}
+
+#section4{
+	background-color: rgba(255,255,255,0.85);
+	overflow: hidden;
+}
+#section4>div{
+	padding: 30px;
+	overflow: hidden;
+}
+.section>h1{
+	line-height: 75px;
+	font-size: 1.2em;
+	color: white;
+	padding-left: 20px;
+	background: #42b3e5;
+}
+.section>h1>span{
+	float: right;
+	margin-right: 20px;
+}
+#section4 h2{
+	color:#42b3e5;
+	font-size: 1.2em;
+	margin-bottom: 20px;
+}
+#section4 h3{
+	font-size: 1.1em;
+	font-weight: 200;
+	margin-bottom: 20px;
+}
+#section4 p{
+	font-size: 1em;
+	line-height: 1.2em;
+}
+#section4 ul{
+	padding-left: 20px;
+	font-size: 0.9em;
+	list-style-type: disc;
+}
+#section4 ul li{
+	margin-bottom: 10px;
+}
+#section4 ul a{
+	color: black;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.col1{
+	width: 25%;
+}
+.col2{
+	width: 60%;
+}
+.project{
+	margin: 30px auto;
+}
+.title{
+	background: #ceccca;
+	padding: 20px;
+}
+.title h3{
+	color: #42b3e5;
+}
+.title p{
+	text-align: right;
+	font-size: 0.8em;
+}
+.article p{
+	line-height: 1.2em;
+	margin: 10px 0;
+	text-indent: 2em;
+}

@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+<div class="content">
+    <div class="section" id="section1">
+      <img id="zaec" src="/static/images/zaec.png">
+      <img id="declare" src="/static/images/declare.png">
+    </div>
+
+   	<div class="section" id="section2">
+    	<div class="sliders">
+    		<img src="/static/images/slide1.png">
+    	</div>
+    	<div>
+    		<h1>大赛通告</h1>
+    		<ul>
+            {% for notification in notification_list %}
+              <li><a href="">{{ notification.title}}</a></li>
+            {% endfor %}
+    			<a href="">查看更多 >> </a>
+    		</ul>		        		
+    	</div>
+    </div>
+
+   	<div class="section" id="section3">
+   		<h1>大赛介绍<span><img src="/static/images/arrow.png"></span></h1>
+   		<div>
+       		
+        	<div class="left col1">
+        		
+        		<h2>大赛宗旨</h2>
+        		<p>整合全球浙江大学校友资源，为浙江大学创业校友提供资本对接、市场推广、政策申请、人才招聘等领域的支持和服务，推动浙江大学创业校友更好更快发展。树立和加强浙江大学“求是之校、创新之校、创业之校”的形象。</p>
+        		<h2>报名对象</h2>
+        		<p>核心团队有浙江大学校友，参赛项目须具有前瞻性、创新性，具备发展潜力和良好的市场前景，应符合国家产业导向，创新性强，有一定市场空间等要求。项目所涉领域包括但不限于TMT、生物技术与医疗健康、消费品及现代服务、节能环保与新能源、新材料、高端装备制造等等。</p>
+        		<h2>赛事新闻</h2>
+        		<ul>
+            {% for news in news_list %}
+              <li><a href="">{{ news.title}}</a></li>
+            {% endfor %}
+        		</ul>		        		
+        	</div>
+
+        	<div class="right col2">
+        		<h2>合作求助</h2>
+        		<p>合作方式的文字内容，可以增加一个按钮点击进入具体的展示页面。</p>
+        		<h2>联系方式</h2>
+        		<p>
+        			杭州浙江大学校友会</br>
+        			电话：0571-87283527</br>
+        			邮箱：zjuhz@zjuhz.com</br>    
+        		</p>
+        	</div>
+        </div>
+        <a href="/intro">查看更多 >> </a>
+    </div>	
+
+   	<div class="section" id="section4">
+   		<h1>组织机构<span><img src="/static/images/arrow.png"></span></h1>
+   		<div>
+   			<h2>主办单位</h2>
+   			<div class="org-section">
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>	
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>			       					       				
+   			</div>
+   			<h2>支持单位</h2>
+   			<div class="org-section">
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>	
+   			</div>
+   			<h2>支持媒体</h2>
+   			<div class="org-section">
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+
+   			</div>		       			
+   			<h2>设计与技术支持</h2>
+   			<div class="org-section">
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+   				<span>
+   					<span><img src="/static/images/logo1.png"></span></br>
+   					<p>杭州浙江大学校友会</p>
+   				</span>
+
+   			</div>		       			
+        </div>
+    </div>		        	        
+</div>
+
+<script type="text/javascript">
+$('.navigation a[href="/"]').addClass('selected');
+</script>
+{% endblock %}

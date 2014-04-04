@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/projects.css">
+<div class="content">
+    <div class="section" id="section1">
+      <img id="zaec" src="/static/images/zaec.png">
+      <img id="declare" src="/static/images/declare.png">
+    </div>	
+
+   	<div class="section" id="section4">
+   		<h1>项目展示<span><img src="/static/images/arrow.png"></span></h1>
+   		
+      {% for project in project_list %}
+        <div>
+          <h2>{{project.title}}</h2>
+          <div class="project">
+            <div class="left col1">
+              <img src= {{project.image}} >
+            </div>  
+            <div class="right col2">
+              <h3><span>项目公司：</span>{{project.author}}</h3>
+              <p><span>项目简介：</span>{{project.abstract}}</p>
+            </div>                      
+          </div>  
+        </div>              
+      {% endfor %}		        		        
+    </div>		        	        
+</div>
+
+<script type="text/javascript">
+$('.navigation a[href="/projects"]').addClass('selected');
+</script>
+{% endblock %}

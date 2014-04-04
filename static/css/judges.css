@@ -1,0 +1,65 @@
+/******color sheet*******
+	blue: #42b3e5;
+	green1: #7c8e77;
+	green2: #506e50;
+	gray: #ceccca;
+*/
+body{
+	background: url(imgs/bg1.jpg) no-repeat top center #506e50;
+}
+#section4{
+	background-color: rgba(255,255,255,0.85);
+}
+#section4>div{
+	padding: 30px;
+	overflow: hidden;
+}
+.section>h1{
+	line-height: 75px;
+	font-size: 1.2em;
+	color: white;
+	padding-left: 20px;
+	background: #42b3e5;
+}
+.section>h1>span{
+	float: right;
+	margin-right: 20px;
+}
+#section4 h2{
+	color:#42b3e5;
+	font-size: 1.2em;
+}
+.org-section>span{
+	display: inline-block;
+	width: 150px;
+	margin: 15px 20px 15px 0;
+
+}
+.org-section>span>span{
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+	position: relative;
+}
+.org-section>span>span>img{
+	width: 100%;
+}
+.org-section>span>span>p{
+	width: 130px;
+	height: 40px;
+	background-color: #949393;
+	font-size: 0.9em;
+	line-height: 40px;
+	padding-left: 20px;
+	color: white;
+	position: absolute;
+	bottom: 0px;
+}
+
+.org-section>span>p{
+	font-size: 0.9em;
+	margin-top: 10px;
+	line-height: 1.3em;
+	height: 3.9em;
+	overflow: hidden;
+}

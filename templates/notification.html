@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/notification.css">
+<div class="content">
+    <div class="section" id="section1">
+        <img id="zaec" src="/static/images/zaec.png">
+        <img id="declare" src="/static/images/declare.png">
+    </div>	
+
+   	<div class="section" id="section4">
+   		<h1>活动公告<span><img src="/static/images/arrow.png"></span></h1>
+    	<div class="left col1">
+    		<h2>热门新闻</h2>
+    		<ul>
+                {% for news in news_list %}
+                  <li><a href="">{{ news.title}}</a></li>
+                {% endfor %}
+    		</ul>		
+
+            <h2>热门活动</h2>
+            <ul>
+                {% for news in news_list %}
+                  <li><a href="/news/{{ news.id}}">{{ news.title}}</a></li>
+                {% endfor %}
+            </ul>        		
+    	</div>	 
+
+    	<div class="right col2">
+    		<div class="title">
+    			<h3>Android系统发现Pileup漏洞：系统在升级时更易受攻击</h3>
+    			<p>
+        			<span>作者：<span>Jenkin Xia</span></span>
+        			<span>发布时间：<span>2014-03-23</span></span>
+        			<span>发布在：<span>钱江晚报</span></span>
+    			</p>
+
+    		</div>
+    		<!--div class="article">
+    			<img src="/static/images/andriod.jpg" style="display:block; width:400px; margin:20px auto;">
+    			<p>升级系统通常是为了修复已有的安全漏洞，但事实上，Android系统却可能在升级过程中让系统暴露在更易受到攻击的环境中——这来自于美国印第安纳大学一支研究移动设备安全的团队近期发布漏洞报告。该漏洞称为“Pileup 漏洞”，即：通过升级过程获得未经许可的更高授权。针对此漏洞的补丁程序已经由该团队发布于Google Play，腾讯应用宝，360手机助手，其官方网站也提供免费下载。</p>
+    			<p>这项发现由系统安全实验室的团队和微软研究院合作，首先在第35届IEEE安全与隐私会议（IEEE Symposium on Security and Privacy）上发表。研究团队成员邢璐祎对PingWest说：“Google官方对这类漏洞修复时间很长，考虑到Android版本繁多的特性，也不好修。”</p>
+    			<p>在Android系统源码中，该研究团队总共发现了六类Pileup漏洞，分别存在于所有的已知的Android版本之中：所有Android原生系统以及三星、LG和HTC在全球范围内定制的3522个Android版本里均存在Pileup漏洞。换言之，这些漏洞正影响着全球范围内的Android设备，威胁着数十亿Android用户的信息安全。</p>
+    			<p>尽管至今没有发生过任何已知的针对Pileup漏洞的大规模病毒或者黑客公司发生，但该漏洞的危害程度取决于Google在未来版本升级中可能开放的权限。对于每一个新的Android版本，谷歌都会加入很多新的权限或系统应用。设备厂商拿到原生版本后，会进一步深度定制，加入更多新权限和系统应用。</p>
+    			<p>一个起初安装在低版本Android系统上的应用，可以利用Pileup漏洞改写其在高版本系统上才有的权限或者属性。更严重的是，这个恶意应用还可以成为该权限的拥有者，任意设置其保护级别(protection level)以及权限描述(description)，并抢占共享用户标识(UID)替换诸如Google Calendar之类的系统子自带应用。而对程序包名的恶意抢占则被证明可以用来危害Android的默认浏览器，比如污染它的cookie、缓存，安全配置和页面标签等等。可能造成结果包括窃取通过手机浏览器输入的各类用户名及密码、银行账号信息、截获用户一天中的个人事务列表。</p>
+    			<p>该研究团队表示，希望更多的Android用户关注和下载该补丁应用，避免未来受到影响。</p>
+    		</div-->
+            {% block article %}{% endblock %}
+            <div class="article">
+                {% for news in news_list %}
+                    {% autoescape off %}
+
+                        {{ news.content}}
+                    {% endautoescape %}
+                {% endfor %}
+            </div>
+    		
+    	</div>			        	       
+    </div>		        	        
+</div>
+
+<script type="text/javascript">
+$('.navigation a[href="/notification"]').addClass('selected');
+</script>
+{% endblock %}

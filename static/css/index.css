@@ -1,0 +1,138 @@
+/******color sheet*******
+	blue: #42b3e5;
+	green1: #7c8e77;
+	green2: #506e50;
+	gray: #ceccca;
+*/
+body{
+	background: url(imgs/bg4.jpg) no-repeat top center #506e50;
+}
+.sliders{
+	float: left;
+	width: 650px; 
+}
+.sliders img{
+	width: 100%;
+}
+#section2 div:nth-child(2){
+	float: right;
+	width: 270px;
+}
+#section2 h1{
+	line-height: 55px;
+	font-size: 1.2em;
+	color: white;
+	padding-left: 20px;
+	background: #42b3e5;
+}
+
+#section2 ul{
+	padding: 30px 0 20px 20px;
+	font-size: 0.9em;
+	height: 223px;
+	background: white;
+	position: relative;
+	overflow: hidden;
+}
+#section2 ul li{
+	margin-bottom: 5px;
+}
+#section2 ul li a{
+	text-decoration: none;
+	color: black;
+}
+#section2 ul>a{	
+	text-decoration: none;
+	display: block;
+	width: 6em;
+	color: #42b3e5;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+#section3{
+	background: rgba(255,255,255,0.7);
+}
+#section4{
+	background-color: rgba(255,255,255,0.85);
+}
+#section3>div,#section4>div{
+	padding: 30px;
+	overflow: hidden;
+}
+.section>h1{
+	line-height: 75px;
+	font-size: 1.2em;
+	color: white;
+	padding-left: 20px;
+	background: #42b3e5;
+}
+.section>h1>span{
+	float: right;
+	margin-right: 20px;
+}
+#section3 h2{
+	font-size: 1.15em;
+	color: white;
+	color: #42b3e5;
+	margin: 0 0 20px 0;
+}
+#section3 p{
+	font-size: 0.9em;
+	margin: 20px 0;
+	line-height: 1.5em;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.col1{
+	width: 60%;
+}
+.col2{
+	width: 35%;
+}
+#section3 ul{
+	padding-left: 20px;
+	font-size: 0.9em;
+	list-style-type: disc;
+}
+#section3 ul li{
+	margin-bottom: 10px;
+}
+#section3 ul a{
+	color: black;
+}
+#section3>a{
+	text-decoration: none;
+	display: block;
+	width: 6em;
+	margin: auto;
+	color: #42b3e5;
+	margin-bottom: 30px;
+}
+.org-section>span{
+	display: inline-block;
+	width: 170px;
+	margin: 15px 0;
+
+}
+.org-section>span>span{
+	display: inline-block;
+	width: 160px;
+	height: 70px;
+	border: solid 2px #b1b1b1;
+	text-align: center;
+	line-height: 100px;
+}
+.org-section>span>p{
+	font-size: 0.9em;
+	text-align: center;
+	margin-top: 10px;
+}
+.org-section>span>span:hover{
+	border: solid 2px #42b3e5;
+}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/notification.css">
+<div class="content">
+    <div class="section" id="section1">
+        <img id="zaec" src="/static/images/zaec.png">
+        <img id="declare" src="/static/images/declare.png">
+    </div>	
+
+   	<div class="section" id="section4">
+   		<h1>活动公告<span><img src="/static/images/arrow.png"></span></h1>
+    	<div class="left col1">
+    		<h2>热门新闻</h2>
+    		<ul>
+                {% for posts in news_list %}
+                  <li><a href="">{{ posts.title}}</a></li>
+                {% endfor %}
+    		</ul>		        		
+    	</div>	 
+
+    	<div class="right col2">
+    		<div class="title">
+    			<h3>{{ news.title}}</h3>
+    			<p>
+        			<span>作者：<span>{{ news.author}}</span></span>
+        			<span>发布时间：<span>{{ news.time}}</span></span>
+        			<span>发布在：<span>{{ news.source}}</span></span>
+    			</p>
+
+    		</div>
+            <div class="article">
+                {% autoescape off %}
+                    {{ news.content}}
+                {% endautoescape %}
+            </div>
+    		
+    	</div>			        	       
+    </div>		        	        
+</div>
+
+<script type="text/javascript">
+$('.navigation a[href="/notification"]').addClass('selected');
+</script>
+{% endblock %}

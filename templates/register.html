@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/css/register.css">
+<div class="content">
+    <div class="section" id="section1">
+    	<img id="zaec" src="/static/images/zaec.png">
+    	<img id="declare" src="/static/images/declare.png">
+    </div>	
+
+   	<div class="section" id="section4">
+   		<h1>大赛报名<span><img src="/static/images/arrow.png"></span>
+        </h1>
+   		<div>		       		
+        <form id="reg-form" action="/register" method="post" onsubmit="return check_form()" ENCTYPE="multipart/form-data" >
+        	<fieldset>
+        		<legend>企业信息</legend>
+        		<hr>
+        		<div class="input-box">
+                    <label for="company">企业名称</label>	                            
+                    <input class="size3" name="company" id="company" type="text"/> 
+                    <label for="address">地址</label>
+                    <input class="size3"  name="address" id="address" type="text"/> 
+                </div>
+
+        		<div class="input-box">
+                    <label for="invest">注册资本</label>	                            
+                    <input class="size1" name="invest" id="invest" type="text"/>万元
+                    <label for="time">成立时间</label>
+                    <input class="size1" name="time" id="time" type="text"/> 
+                </div>
+
+                <legend>浙大校友信息</legend>
+                <hr>
+        		<div class="input-box">
+                    <label for="name">姓名</label>	                            
+                    <input class="size1" name="name" id="name" type="text" />
+                    <label for="major">入学年及专业</label>
+                    <input class="size3" name="major" id="major" type="text" /> 
+                </div>
+
+        		<div class="input-box">
+                    <label for="phone">手机</label>	                            
+                    <input class="size1" name="phone" id="phone" type="text" />
+                    <label for="email">邮箱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input class="size3" name="email" id="email" type="text" /> 
+                </div>
+
+        		<div class="input-box">
+                    <label for="position">职务</label>	                            
+                    <input class="size1" name="position" id="position" type="text" />
+                    <label for="holds">持股情况&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input class="size1" name="holds" id="holds" type="text" /> ％
+                </div>
+
+				<legend>企业简介</legend>
+				<hr>
+        		<div class="input-box">
+                    <label for="introduction">项目介绍（100字以内）</label>                            
+                </div>	
+                <textarea name="introduction" id="introduction"></textarea>
+
+        		<div class="input-box">
+                    <label for="team">团队架构（100字以内）</label>
+                </div>	
+                <textarea name="team" id="team"></textarea>
+
+        		<div class="input-box">
+                    <label for="business">商业模式（100字以内）</label>
+                </div>
+                <textarea name="business" id="busniss"></textarea></br>	
+
+                <div class="input-box">
+                    <label for="file">请上传商业计划书</label>
+                    <input type="file" name="file_path" id="file_path">
+                </div>                
+                
+                <input type="submit"></input>
+
+        	</fieldset>
+        </form>		        
+    </div>
+    </div>		        	        
+</div>
+<script type="text/javascript">
+function check_form(){
+    result = true;
+    $.each($("#reg-form").serializeArray(), function() {
+        //result[this.name] = this.value;
+        if(this.value.length===0){
+             alert("请检查是否有空格未填写！");
+             result = false;
+             console.log(this.value)
+             return false;
+        }
+        else if(this.value.length >200 ){
+             alert("请不要超过100字！");
+             result = false;
+             console.log(this.value)
+             return false;
+
+        }
+    });  
+    console.log(result); 
+
+    if (result == true)
+        alert("恭喜您，注册成功！"); 
+  return result;
+}
+</script>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "admin/models/base_forms.html" %}
+
+{% block breadcrumbs %}
+ {{ super() }}
+ <li><span class="divider">/</span> <a href=".">Editing</a></li>
+{% endblock %}
+
+{% block extra_tabs %}
+  <li class="active"><a href=".">Editing</a></li>
+{% endblock %}
+
+{% block content %}
+  {% include "admin/includes/form_raw_id.html" %}
+  {% if form.errors %}
+    <div class="alert alert-block alert-error">
+      <a class="close" data-dismiss="alert" href="#">×</a>
+      <p>There were errors with your form submission</p>
+    </div>
+  {% endif %}
+  <form method="post" action="." class="edit form-horizontal" enctype="multipart/form-data">
+    <fieldset>
+      {% if csrf_token %}{# Support for flask-seasurf #}<input type="hidden" name="_csrf_token" value="{{ csrf_token() }}">{% endif %}
+      <legend>Edit {{ model_admin.get_display_name() }}</legend>
+      {% for field in form %}
+        {{ admin_field(field) }}
+      {% endfor %}
+      <div id="editor"></div>
+      {% block extra_form %}{% endblock %}
+      <div class="form-actions">
+        <button class="btn btn-primary" name="save" type="submit">Save</button>
+        <button class="btn" name="save_add" type="submit">Save and add new</button>
+        <button class="btn" name="save_edit" type="submit">Save and edit</button>
+        <a class="btn" href="{{ url_for(model_admin.get_url_name('index')) }}">Cancel</a>
+        <a class="btn btn-danger pull-right" href="{{ url_for(model_admin.get_url_name('delete'), id=instance.get_id()) }}">Delete</a>
+      </div>
+    </fieldset>
+  </form>
+<script type="text/javascript" src="/static/js/ckeditor-standard/ckeditor.js"></script>
+  <script>
+
+    var editor, html = '';
+
+    function createEditor() {
+      if ( editor )
+        return;
+
+      // Create a new editor inside the <div id="editor">, setting its value to html
+      var config = {
+        filebrowserBrowseUrl: '/browser/browse.php', filebrowserImageBrowseUrl: '/browser/browse.php?type=Images', filebrowserUploadUrl: '/uploader/upload.php',filebrowserImageUploadUrl: '/uploader/upload.php?type=Images'
+      };
+      editor = CKEDITOR.replace( 'content', config, html );
+    }
+    createEditor();
+
+  </script>
+{% endblock %}
