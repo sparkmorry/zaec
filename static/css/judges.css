@@ -4,9 +4,6 @@
 	green2: #506e50;
 	gray: #ceccca;
 */
-body{
-	background: url(imgs/bg1.jpg) no-repeat top center #506e50;
-}
 #section4{
 	background-color: rgba(255,255,255,0.85);
 }
@@ -42,7 +39,8 @@ body{
 	position: relative;
 }
 .org-section>span>span>img{
-	width: 100%;
+	width: 150px;
+	height: 150px;
 }
 .org-section>span>span>p{
 	width: 130px;
@@ -62,4 +60,11 @@ body{
 	line-height: 1.3em;
 	height: 3.9em;
 	overflow: hidden;
+}
+.org-section>p{
+	margin: 10px 0;
+}
+.description{
+	font-size: 0.8em;
+	margin-left: 1em;
 }

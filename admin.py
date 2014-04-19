@@ -48,8 +48,8 @@ class NewsAdmin(ModelAdmin):
     columns = ('title','author','category')
     
     def get_template_overrides(self):
-        return {'edit': 'edit.html',
-        'add': 'add.html'}  
+        return {'edit': 'admin/edit.html',
+        'add': 'admin/add.html'}  
 
 #admin.register(Note, NoteAdmin)
 admin.register(Photo, PhotoAdmin)

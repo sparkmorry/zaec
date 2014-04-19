@@ -4,10 +4,6 @@
 	green2: #506e50;
 	gray: #ceccca;
 */
-body{
-	background: url(imgs/bg2.jpg) no-repeat bottom center #b76a60;
-}
-
 #section4{
 	background-color: rgba(255,255,255,0.85);
 }
@@ -26,7 +22,7 @@ body{
 	float: right;
 	margin-right: 20px;
 }
-#section4 h2{
+#section4 a.title{
 	color:#42b3e5;
 	font-size: 1.2em;
 }

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+<script type="text/javascript" src="/static/js/babyzone.js"></script>
 <div class="content">
     <div class="section" id="section1">
       <img id="zaec" src="/static/images/zaec.png">
@@ -8,16 +9,22 @@
     </div>
 
    	<div class="section" id="section2">
-    	<div class="sliders">
-    		<img src="/static/images/slide1.png">
-    	</div>
+      <div id="banner" class="sliders">   
+          <a href="#" id="banner_info"></a> <!--标题-->
+          <ul id="list"></ul>
+         <div id="banner_list">
+            {% for pic in pics %}
+              <a href="javascript:void(0)"><img src="{{pic.image}}" class="slide_img" alt="橡树小屋的blog" /></a>
+            {% endfor %}
+          </div>
+      </div>
     	<div>
     		<h1>大赛通告</h1>
-    		<ul>
+    		<ul class="noti">
             {% for notification in notification_list %}
-              <li><a href="">{{ notification.title}}</a></li>
+              <li><a href="/news/{{ notification.id}}">{{ notification.title}}</a></li>
             {% endfor %}
-    			<a href="">查看更多 >> </a>
+    			<a href="/notification">查看更多 >> </a>
     		</ul>		        		
     	</div>
     </div>
@@ -35,14 +42,14 @@
         		<h2>赛事新闻</h2>
         		<ul>
             {% for news in news_list %}
-              <li><a href="">{{ news.title}}</a></li>
+              <li><a href="/news/{{ news.id}}">{{ news.title}}</a></li>
             {% endfor %}
         		</ul>		        		
         	</div>
 
         	<div class="right col2">
-        		<h2>合作求助</h2>
-        		<p>合作方式的文字内容，可以增加一个按钮点击进入具体的展示页面。</p>
+        		<h2>创业求助</h2>
+        		<p>如果浙大校友在创业过程中有资金、人力及任何需要帮助的地方，请与我们取得联系。</p>
         		<h2>联系方式</h2>
         		<p>
         			杭州浙江大学校友会</br>
@@ -59,65 +66,180 @@
    		<div>
    			<h2>主办单位</h2>
    			<div class="org-section">
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>	
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>			       					       				
+   				<span class="logo-wrapper">
+   					<span><img class="logo" src="/static/images/logo2.jpg"></span></br>
+   					<p>浙江大学校友总会</p>
+   				</span>		       					       				
    			</div>
-   			<h2>支持单位</h2>
+   			<h2>承办单位</h2>
    			<div class="org-section">
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>	
+          <span>
+            <span><img class="logo" src="/static/images/logo1.png"></span></br>
+            <p>杭州浙江大学校友会</p>
+          </span>
    			</div>
-   			<h2>支持媒体</h2>
+   			<h2>协办单位</h2>
    			<div class="org-section">
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
-   				<span>
-   					<span><img src="/static/images/logo1.png"></span></br>
-   					<p>杭州浙江大学校友会</p>
-   				</span>
+          <span class="logo-wrapper">
+            <span><img class="logo" src="/static/images/logo3.jpg"></span></br>
+            <p>浙江创投</p>
+          </span>
+          <span>
+            <span><img class="logo" src="/static/images/logo4.jpg"></span></br>
+            <p>浙大科发</p>
+          </span> 
+   			</div>	
+        <h2>电视媒体</h2>	 
+        <div class="org-section">
+          <p>浙江经视《资本相亲会》</p>
+        </div>   
 
-   			</div>		       			
+        <h2>支持单位</h2> 
+        <div class="org-section">
+          <table class="supports" border="0" cellspacing="0" cellpadding="0" width="815" style="width:489pt;margin-left:21.3pt;"><tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">奥普集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">盾安集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">广宇集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">海康威视<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:1;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">绿城集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">汉鼎股份<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">恒生电子<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">华立集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:2;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">聚光科技<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">康恩贝<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">南都集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">三花控股<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:3;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">士兰微<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">水晶光电<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">苏泊尔<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">天玑科技<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:4;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">通策医疗<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">万事利集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">外婆家<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">西子联合<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:5;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">新湖集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">新世纪<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">信雅达<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">银江医疗<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:6;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">浙大网新<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">浙江物产<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"></td>
+          </tr>
+          <tr style="mso-yfti-irow:7;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">高特佳投资<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">软银中国<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">唐氏投资<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">云锋基金</span><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Timesnewroman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;timesnewroman&quot;;mso-font-kerning:0pt;"><o:p></o:p></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:8;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">致景投资<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">中建信控股集团<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">东方富海<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">浙江大学科技创业投资有限公司</span><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Timesnewroman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;timesnewroman&quot;;mso-font-kerning:0pt;"><o:p></o:p></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:9;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">浙江股权交易中心<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span lang="EN-US" style="font-size:16px;font-family:宋体;">IDG</span><span style="font-size:16px;font-family:宋体;">资本<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">高通公司<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">金沙江创投</span><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Timesnewroman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;timesnewroman&quot;;mso-font-kerning:0pt;"><o:p></o:p></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:10;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">方广资本<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">晨兴创投<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">德同资本<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">鼎晖投资</span><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Timesnewroman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;timesnewroman&quot;;mso-font-kerning:0pt;"><o:p></o:p></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:11;mso-yfti-lastrow:yes;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">红杉资本<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="177" nowrap="" style="width:106.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">经纬中国<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="131" nowrap="" style="width:78.3pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">清科创投<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="318" nowrap="" style="width:191.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">启迪创投</span><span lang="EN-US" style="font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:&quot;Timesnewroman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;timesnewroman&quot;;mso-font-kerning:0pt;"><o:p></o:p></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          </tbody>
+          </table>
+        </div> 
+
+        <h2>支持媒体</h2>  
+        <div class="org-section">
+          <table class="supports" border="0" cellspacing="0" cellpadding="0" width="650" style="width:390pt;margin-left:21.3pt;"><tbody><tr style="mso-yfti-irow:0;mso-yfti-firstrow:yes;height:15.0pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">新华社<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="154" nowrap="" style="width:92.6pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span lang="EN-US" style="font-size:16px;">19</span><span style="font-size:16px;font-family:宋体;">楼</span><span lang="EN-US" style="font-size:12pt;"><o:p></o:p></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="153" nowrap="" style="width:92.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">浙江日报<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="153" nowrap="" style="width:92.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">钱江晚报<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:1;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">《创业邦》杂志<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="154" nowrap="" style="width:92.6pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">《浙商》杂志<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="153" nowrap="" style="width:92.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">浙江在线<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="153" nowrap="" style="width:92.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">杭州日报<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          </tr>
+          <tr style="mso-yfti-irow:2;mso-yfti-lastrow:yes;height:14.4pt;"><td width="189" nowrap="" style="width:4.0cm;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">都市快报<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="154" nowrap="" style="width:92.6pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"><span style="font-size:16px;">   </span><p class="MsoNormal"><span style="font-size:16px;font-family:宋体;">青年时报<span lang="EN-US"><o:p></o:p></span></span></p>
+          <span style="font-size:16px;">   </span></td>
+          <td width="153" nowrap="" style="width:92.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"></td>
+          <td width="153" nowrap="" style="width:92.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt;"></td>
+          </tr>
+          </tbody>
+          </table>
+        </div>  
+
    			<h2>设计与技术支持</h2>
    			<div class="org-section">
-   				<span>
+   				<span class="logo-wrapper">
    					<span><img src="/static/images/logo1.png"></span></br>
    					<p>杭州浙江大学校友会</p>
    				</span>
@@ -125,7 +247,6 @@
    					<span><img src="/static/images/logo1.png"></span></br>
    					<p>杭州浙江大学校友会</p>
    				</span>
-
    			</div>		       			
         </div>
     </div>		        	        
@@ -133,5 +254,9 @@
 
 <script type="text/javascript">
 $('.navigation a[href="/"]').addClass('selected');
+window.onload=function(){
+    //
+    babyzone.scroll({{pic_num}},"banner_list","list","banner_info");
+}
 </script>
 {% endblock %}

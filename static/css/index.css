@@ -4,15 +4,13 @@
 	green2: #506e50;
 	gray: #ceccca;
 */
-body{
-	background: url(imgs/bg4.jpg) no-repeat top center #506e50;
-}
 .sliders{
 	float: left;
 	width: 650px; 
+	height: 330px;
 }
-.sliders img{
-	width: 100%;
+.slide_img{
+	width: 650px;
 }
 #section2 div:nth-child(2){
 	float: right;
@@ -26,8 +24,8 @@ body{
 	background: #42b3e5;
 }
 
-#section2 ul{
-	padding: 30px 0 20px 20px;
+#section2 ul.noti{
+	padding: 30px 20px 20px 20px;
 	font-size: 0.9em;
 	height: 223px;
 	background: white;
@@ -35,10 +33,9 @@ body{
 	overflow: hidden;
 }
 #section2 ul li{
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 #section2 ul li a{
-	text-decoration: none;
 	color: black;
 }
 #section2 ul>a{	
@@ -118,7 +115,10 @@ body{
 	display: inline-block;
 	width: 170px;
 	margin: 15px 0;
-
+}
+img.logo{
+	display: inline-block;
+	width: 160px;
 }
 .org-section>span>span{
 	display: inline-block;
@@ -136,3 +136,17 @@ body{
 .org-section>span>span:hover{
 	border: solid 2px #42b3e5;
 }
+
+.org-section>p{
+	margin: 15px 0;
+}
+.supports{
+	margin: 10px 0;
+}
+
+#banner {position:relative;overflow:hidden;}
+#banner_list img {border:0px;position: relative;}
+#banner ul {position:absolute;list-style-type:none;filter: Alpha(Opacity=75);opacity:0.75;z-index:1002;margin:0; padding:0; bottom:3px; right:5px;}
+#banner ul li { padding:0px 8px;float:left;display:block;color:#FFF;border:#fff 1px solid;background-color:#42c3ad;cursor:pointer}
+#banner ul li.on{ background-color:#ed6966}
+#banner_list a{position:absolute;} <!-- 让四张图片都可以重叠在一起-->

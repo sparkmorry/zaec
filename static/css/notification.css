@@ -4,16 +4,12 @@
 	green2: #506e50;
 	gray: #ceccca;
 */
-body{
-	background: url(imgs/bg4.jpg) no-repeat top center #506e50;
-}
-
 #section4{
 	background-color: rgba(255,255,255,0.85);
 	overflow: hidden;
 }
 #section4>div{
-	padding: 30px;
+	padding: 30px ;
 	overflow: hidden;
 }
 .section>h1{
@@ -32,14 +28,15 @@ body{
 	font-size: 1.2em;
 	margin-bottom: 20px;
 }
-#section4 h3{
-	font-size: 1.1em;
-	font-weight: 200;
-	margin-bottom: 20px;
+#news, #events{
+	position: relative;
+	margin-bottom: 50px;
 }
-#section4 p{
+#section4 h3 a{
 	font-size: 1em;
-	line-height: 1.2em;
+	font-weight: 200;
+	color: black;
+	text-decoration: none;
 }
 #section4 ul{
 	padding-left: 20px;
@@ -51,8 +48,20 @@ body{
 }
 #section4 ul a{
 	color: black;
+	line-height: 1.3em;
 }
-
+.news, .event{
+	margin-bottom: 20px;
+}
+a.more{	
+	text-decoration: none;
+	display: block;
+	width: 6em;
+	color: #42b3e5;
+	position: absolute;
+	bottom: -40px;
+	right: 20px;
+}
 .left{
 	float: left;
 }
@@ -63,24 +72,14 @@ body{
 	width: 25%;
 }
 .col2{
-	width: 60%;
+	width: 62%;
 }
-.project{
-	margin: 30px auto;
-}
-.title{
-	background: #ceccca;
-	padding: 20px;
-}
-.title h3{
-	color: #42b3e5;
-}
-.title p{
-	text-align: right;
-	font-size: 0.8em;
+.article{
+	margin: 10px 0;
 }
 .article p{
-	line-height: 1.2em;
-	margin: 10px 0;
-	text-indent: 2em;
+	line-height: 1em;
+	font-size: 0.9em;
+	margin: 5px 0;
+	color: gray;
 }

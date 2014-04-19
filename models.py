@@ -70,7 +70,8 @@ class News(db.Model):
                                   ('PEOPLE', '评委'),
                                   ('PICTURE', '轮播图片'),
                                   ('PROJECT', '项目展示'),
-                                  ('NOTIFICATION', '通告')
+                                  ('NOTIFICATION', '通告'),
+                                  ('INTRO','大赛介绍')
                                   ])
     def __unicode__(self):
         return '%s: %s %s' % (self.title, self.author, self.category)        

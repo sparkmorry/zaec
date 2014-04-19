@@ -7,6 +7,10 @@ body{
 	padding-bottom: 50px;
 	font-family:"Microsoft YaHei";
 	min-width: 960px;
+	background: url(imgs/bg4.jpg) no-repeat top center #506e50;
+}
+a{
+	text-decoration: none;
 }
 #section1, #section2, #section3{
 	position: relative;

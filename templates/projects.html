@@ -12,7 +12,7 @@
    		
       {% for project in project_list %}
         <div>
-          <h2>{{project.title}}</h2>
+          <a class="title" href="/project/{{project.id}}">{{project.title}}</a>
           <div class="project">
             <div class="left col1">
               <img src= {{project.image}} >
